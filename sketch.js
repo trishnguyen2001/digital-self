@@ -4,6 +4,7 @@ let earTwitch; //amount ears twitch
 let direction; //which direction ears rotate in
 let ghosts; //array holding all ghosts
 let ghostNum; //amount of ghosts
+let sketchStarted = false;
 
 function setup() {
   createCanvas(400, 400);
@@ -13,8 +14,7 @@ function setup() {
   noStroke();
 
   //audio input setup
-  mic = new p5.AudioIn(); //creates new audio in object
-  mic.start(); //starts taking new input lvl
+  createButton("START").mousePressed(startSketch());
 
   //iteration animation setup
   earTwitch = 0;
@@ -32,13 +32,21 @@ function setup() {
 }
 
 function draw() {
-  background(118, 133, 135);
-  showGhosts();
-  drawBody(51);
-  drawHead(51);
-  micInput();
-  mouseInput();
-  iteration();
+  if (sketchStarted) {
+    background(118, 133, 135);
+    showGhosts();
+    drawBody(51);
+    drawHead(51);
+    micInput();
+    mouseInput();
+    iteration();
+  }
+}
+
+function startSketch() {
+  mic = new p5.AudioIn(); //creates new audio in object
+  mic.start(); //starts taking new input lvl
+  sketchStarted = true;
 }
 
 function micInput() {
