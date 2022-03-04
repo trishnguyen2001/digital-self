@@ -14,7 +14,7 @@ function setup() {
   noStroke();
 
   //audio input setup
-  createButton("START MIC INPUT").mousePressed(startSketch());
+  createButton("START MIC INPUT").mousePressed(startSketch);
 
   //iteration animation setup
   earTwitch = 0;
