@@ -14,7 +14,7 @@ function setup() {
   noStroke();
 
   //audio input setup
-  createButton("START").mousePressed(startSketch());
+  createButton("START MIC INPUT").mousePressed(startSketch);
 
   //iteration animation setup
   earTwitch = 0;
@@ -52,7 +52,7 @@ function startSketch() {
 function micInput() {
   //mic input animation
   let vol = mic.getLevel(); //gets overall volume
-  hatHeight = -vol * 100;
+  hatHeight = -vol * 1000;
   drawHat(hatHeight);
 }
 
